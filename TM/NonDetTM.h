@@ -12,8 +12,8 @@ struct NonDetTM
 	Number stateCount;
 	std::map< TMActionInput, std::set<TMAction> > transitions;
 	
-	NonDetTM() : stateCount(0) {}
-	void incremet();
+	NonDetTM();
+	NonDetTM& operator++();
 };
 
 #endif // NONDETTM_H

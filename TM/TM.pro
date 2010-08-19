@@ -16,11 +16,18 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    NonDetTM.cpp
+    NonDetTM.cpp \
+    TMAction.cpp \
+    TMActionInput.cpp \
+    NonDetTMExecution.cpp \
+    NonDetTMExecBranch.cpp
 
 HEADERS += \
     NonDetTM.h \
     Number.h \
     TMAlphabet.h \
     TMAction.h \
-    TMActionInput.h
+    TMActionInput.h \
+    TMTape.h \
+    NonDetTMExecution.h \
+    NonDetTMExecBranch.h
