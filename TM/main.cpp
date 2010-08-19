@@ -17,27 +17,31 @@ int main(int argc, char *argv[])
 	NonDetTM tm;
 	const size_t Count = 10;
 	std::list<TMPair> tms;
+	size_t iteration = 0;
+	
 	while(true) {
 		while(tms.size() < Count) {
 			tms.push_back(TMPair());
 			tms.back().index = tmIndex;
 			tms.back().tm = tm;
-			cout << "new TM#" << tmIndex << ": "; tm.dump();
+			//cout << "new TM#" << tmIndex << ": "; tm.dump();
 			++tmIndex; ++tm;
 		}
-	
+
 		for(std::list<TMPair>::iterator i = tms.begin(); i != tms.end();) {
-			cout << "TM#" << i->index << ": ";
+			if((iteration % 10000) == 0) cout << "#" << i->index << "; ";
 			i->exec.step(i->tm);
-			cout << endl;
 			
 			if(i->exec.branches.size() == 0) {
-				cout << "killing TM#" << i->index << endl;
+				//cout << "killing TM#" << i->index << endl;
 				i = tms.erase(i);
 			}
 			else
 				++i;
 		}
+		if((iteration % 10000) == 0) cout << endl;
+		
+		iteration++;
 	}
 	
     return 0;

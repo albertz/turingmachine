@@ -9,22 +9,22 @@ NonDetTMExecution::NonDetTMExecution() {
 }
 
 void NonDetTMExecution::step(const NonDetTM& tm) {
-	cout << "#branches " << branches.size();
+	//cout << "#branches " << branches.size();
 	removeFinals(tm.stateCount);
 	
 	size_t oldBranchCount = branches.size(), c = 0;
-	cout << ", #b " << oldBranchCount;
+	//cout << ", #b " << oldBranchCount;
 	for(std::list<NonDetTMExecBranch>::iterator i = branches.begin(); c < oldBranchCount; ++i, ++c) {
 		i->step(tm, branches);
 	}
-	cout << ", after #b " << branches.size();
+	//cout << ", after #b " << branches.size();
 
 	removeDuplicateBranches();
 }
 
 void NonDetTMExecution::removeDuplicateBranches() {
 	// TODO
-	cout << ", cleaned #b " << branches.size();
+	//cout << ", cleaned #b " << branches.size();
 }
 
 void NonDetTMExecution::removeFinals(Number stateCount) {
@@ -37,5 +37,5 @@ void NonDetTMExecution::removeFinals(Number stateCount) {
 			++i;
 	}
 	
-	cout << ", #final " << count << "";
+	//cout << ", #final " << count << "";
 }
