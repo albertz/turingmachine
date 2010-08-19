@@ -1,4 +1,5 @@
 #include "TMActionInput.h"
+#include "StringUtils.h"
 
 TMActionInput& TMActionInput::operator++() {
 	((int&)currentChar)++;
@@ -8,4 +9,8 @@ TMActionInput& TMActionInput::operator++() {
 		state++;
 	
 	return *this;
+}
+
+std::string TMActionInput::debugStr() const {
+	return "{s:" + itoa(state) + ", c:" + itoa(currentChar) + "}";
 }

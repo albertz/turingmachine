@@ -30,4 +30,5 @@ HEADERS += \
     TMActionInput.h \
     TMTape.h \
     NonDetTMExecution.h \
-    NonDetTMExecBranch.h
+    NonDetTMExecBranch.h \
+    StringUtils.h

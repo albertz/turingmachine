@@ -1,4 +1,7 @@
 #include "NonDetTM.h"
+#include <iostream>
+
+using namespace std;
 
 NonDetTM::NonDetTM() : stateCount(1) {
 	for(TMActionInput actIn; actIn.state < stateCount; ++actIn) {
@@ -12,7 +15,8 @@ static bool incActionSet( const std::list<TMAction>& allActions, std::set<TMActi
 			acts.insert(*i);
 			return true;
 		}
-		
+
+		//cout << "act: " << i->debugStr() << endl;
 		acts.erase(*i);
 	}
 	
@@ -25,6 +29,7 @@ NonDetTM& NonDetTM::operator++() {
 
 	TMActionInput actIn;
 	for(; actIn.state < stateCount; ++actIn) {
+		//cout << "actIn: " << actIn.debugStr() << endl;
 		if(incActionSet(allActions, transitions[actIn]))
 			return *this;
 		
@@ -40,4 +45,8 @@ NonDetTM& NonDetTM::operator++() {
 	}
 	
 	return *this;
+}
+
+void NonDetTM::dump() {
+	cout << "#states " << stateCount << endl;	
 }
