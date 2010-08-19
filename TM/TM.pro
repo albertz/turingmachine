@@ -19,4 +19,8 @@ SOURCES += main.cpp \
     NonDetTM.cpp
 
 HEADERS += \
-    NonDetTM.h
+    NonDetTM.h \
+    Number.h \
+    TMAlphabet.h \
+    TMAction.h \
+    TMActionInput.h
