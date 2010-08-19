@@ -13,6 +13,7 @@ struct NonDetTM
 	std::map< TMActionInput, std::set<TMAction> > transitions;
 	
 	NonDetTM() : stateCount(0) {}
+	void incremet();
 };
 
 #endif // NONDETTM_H

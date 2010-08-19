@@ -1,5 +1,9 @@
 #include "NonDetTM.h"
 
-NonDetTM::NonDetTM()
-{
+static bool incActionSet( std::set<TMAction>& acts ) {
+	
+}
+
+void NonDetTM::incremet() {
+	
 }
