@@ -3,6 +3,7 @@
 
 #include "Number.h"
 #include "TMAlphabet.h"
+#include <string>
 
 struct TMActionInput {
 	Number state;
@@ -15,6 +16,7 @@ struct TMActionInput {
 		return false;
 	}
 	TMActionInput& operator++();
+	std::string debugStr() const;
 };
 
 #endif // TMACTIONINPUT_H
